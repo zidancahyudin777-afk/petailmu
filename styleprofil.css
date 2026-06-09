@@ -204,16 +204,18 @@ h1,h2,h3,h4 { font-weight:700; color:var(--secondary-color); }
 }
 
 .struktur-photo {
-  width:100%;
-  height:200px;
+  width:110px;
+  height:110px;
   overflow:hidden;
+  margin:0 auto 16px;
 }
 
 .struktur-photo img {
   width:100%;
   height:100%;
   object-fit:cover;
-  object-position:top center;
+  object-position:center center;
+  border-radius:50%;
 }
 
 .struktur-info { padding:20px; }
@@ -284,10 +286,12 @@ h1,h2,h3,h4 { font-weight:700; color:var(--secondary-color); }
 }
 
 .pengajar-photo {
-  width:100%;
-  height:200px;
+  width:110px;
+  height:110px;
   object-fit:cover;
-  object-position:top center;
+  object-position:center center;
+  border-radius:50%;
+  margin:0 auto 16px;
 }
 
 .pengajar-info { padding:20px; }

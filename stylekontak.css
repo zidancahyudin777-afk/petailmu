@@ -1,4 +1,4 @@
-/* ===== KONTAK PAGE STYLES ===== */
+/* ===== CONTACT PAGE STYLES ===== */
 
 h1,h2,h3,h4 { font-weight:700; color:var(--secondary-color); }
 
@@ -20,6 +20,115 @@ h1,h2,h3,h4 { font-weight:700; color:var(--secondary-color); }
 }
 
 .btn-primary:hover { background:var(--primary-hover); }
+
+/* ===== CONTACT INFO SECTION ===== */
+.contact-info-section { padding:72px 0; background:var(--light-color); }
+
+.contact-info-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
+  gap:24px;
+}
+
+.contact-info-card {
+  background:#fff;
+  border:1px solid var(--border-color);
+  border-radius:var(--border-radius-lg);
+  padding:28px;
+  text-align:center;
+  box-shadow:var(--box-shadow-sm);
+  transition:var(--transition);
+}
+
+.contact-info-card:hover {
+  transform:translateY(-4px);
+  box-shadow:var(--box-shadow);
+  border-color:rgba(26,107,90,0.12);
+}
+
+.contact-icon {
+  width:56px;
+  height:56px;
+  background:var(--primary-light);
+  color:var(--primary-color);
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:1.3rem;
+  margin:0 auto 16px;
+}
+
+.contact-info-card h3 { font-size:1.05rem; margin-bottom:10px; }
+.contact-info-card p { color:var(--gray-color); font-size:0.875rem; line-height:1.7; margin:0; }
+
+/* ===== MAP SECTION ===== */
+.map-section { padding:72px 0; background:#fff; }
+
+.map-container {
+  position:relative;
+  border-radius:var(--border-radius-lg);
+  overflow:hidden;
+  border:1px solid var(--border-color);
+  box-shadow:var(--box-shadow-md);
+}
+
+.map-wrapper { position:relative; }
+
+.map-overlay {
+  position:absolute;
+  bottom:24px;
+  left:24px;
+  right:24px;
+  background:#fff;
+  padding:20px;
+  border-radius:var(--border-radius-lg);
+  box-shadow:var(--box-shadow-md);
+}
+
+.map-overlay h3 { font-size:1.1rem; margin-bottom:8px; }
+.map-overlay p { color:var(--gray-color); font-size:0.875rem; margin-bottom:14px; display:flex; align-items:center; gap:6px; }
+.map-overlay i { color:var(--primary-color); }
+
+/* ===== FAQ SECTION ===== */
+.faq-section { padding:72px 0; background:var(--light-color); }
+
+.faq-container { max-width:800px; margin:0 auto; }
+
+.faq-item {
+  background:#fff;
+  border-radius:var(--border-radius);
+  border:1px solid var(--border-color);
+  margin-bottom:12px;
+  overflow:hidden;
+}
+
+.faq-question {
+  width:100%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:18px 20px;
+  background:none;
+  border:none;
+  cursor:pointer;
+  text-align:left;
+}
+
+.faq-question h3 { font-size:0.95rem; font-weight:600; color:var(--secondary-color); margin:0; }
+.faq-question i { color:var(--primary-color); transition:transform 0.3s ease; }
+
+.faq-item.active .faq-question i { transform:rotate(180deg); }
+
+.faq-answer {
+  max-height:0;
+  overflow:hidden;
+  transition:max-height 0.3s ease;
+}
+
+.faq-item.active .faq-answer { max-height:300px; }
+
+.faq-answer p { padding:0 20px 18px; color:var(--gray-color); font-size:0.875rem; line-height:1.7; margin:0; }
 
 /* ===== PAGE HEADER ===== */
 .page-header {
