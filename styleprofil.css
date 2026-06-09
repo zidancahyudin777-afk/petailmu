@@ -52,80 +52,39 @@ h1,h2,h3,h4 { font-weight:700; color:var(--secondary-color); }
 .breadcrumb span { color:#475569; }
 .breadcrumb .current { color:#fff; font-weight:600; }
 
-/* ===== ABOUT SECTION ===== */
-.about-section { padding: 72px 0; background:#fff; }
+/* ===== SEJARAH SECTION ===== */
+.sejarah-section { padding: 72px 0; background:#fff; }
 
-.about-grid {
+.sejarah-wrapper {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 56px;
   align-items: center;
 }
 
-.about-image {
+.sejarah-content h2 { font-size:1.85rem; margin-bottom:16px; letter-spacing:-0.02em; }
+.sejarah-text p { color:var(--gray-color); line-height:1.75; margin-bottom:16px; font-size:0.95rem; }
+.sejarah-text p:last-child { margin-bottom:0; }
+
+.sejarah-image {
   border-radius: var(--border-radius-lg);
   overflow: hidden;
   box-shadow: var(--box-shadow-md);
 }
 
-.about-image img { width:100%; height:auto; display:block; }
-
-.about-content h2 { font-size:1.85rem; margin-bottom:16px; letter-spacing:-0.02em; }
-.about-content p { color:var(--gray-color); line-height:1.75; margin-bottom:16px; font-size:0.95rem; }
-.about-content p:last-child { margin-bottom:0; }
-
-/* ===== TEAM SECTION ===== */
-.team-section { padding: 72px 0; background: var(--light-color); }
-
-.team-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 24px;
-}
-
-.team-card {
-  background: #fff;
-  border-radius: var(--border-radius-lg);
-  border: 1px solid var(--border-color);
-  overflow: hidden;
+.sejarah-image img { width:100%; height:auto; display:block; }
+.image-caption {
+  padding: 12px 0 0;
   text-align: center;
-  transition: var(--transition);
-  box-shadow: var(--box-shadow-sm);
+  font-size: 0.85rem;
+  color: var(--gray-color);
+  font-style: italic;
 }
 
-.team-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--box-shadow);
-  border-color: rgba(26,107,90,0.12);
-}
+/* ===== VISI MISI SECTION ===== */
+.visi-misi-section { padding:72px 0; background: var(--light-color); }
 
-.team-photo {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  object-position: top center;
-}
-
-.team-info { padding: 20px; }
-.team-info h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 4px; }
-.team-role {
-  display:inline-block;
-  background:var(--primary-light);
-  color:var(--primary-color);
-  font-size:0.72rem;
-  font-weight:700;
-  padding:3px 10px;
-  border-radius:99px;
-  text-transform:uppercase;
-  letter-spacing:0.05em;
-  margin-bottom:10px;
-}
-.team-info p { color:var(--gray-color); font-size:0.84rem; line-height:1.6; margin:0; }
-
-/* ===== VISION MISSION ===== */
-.visi-misi-section { padding:72px 0; background:#fff; }
-
-.visi-misi-grid {
+.visi-misi-wrapper {
   display:grid;
   grid-template-columns:1fr 1fr;
   gap:24px;
@@ -140,15 +99,14 @@ h1,h2,h3,h4 { font-weight:700; color:var(--secondary-color); }
 }
 
 .visi-card { background:var(--primary-color); }
-.misi-card { background:var(--light-color); }
+.misi-card { background:#fff; }
 
 .visi-card h3 { color:#fff; font-size:1.15rem; margin-bottom:14px; }
 .visi-card p { color:rgba(255,255,255,0.82); font-size:0.9rem; line-height:1.7; margin:0; }
 
 .misi-card h3 { color:var(--secondary-color); font-size:1.15rem; margin-bottom:14px; }
-
-.misi-list { list-style:none; padding:0; }
-.misi-list li {
+.misi-card ul { list-style:none; padding:0; margin:0; }
+.misi-card li {
   display:flex;
   align-items:flex-start;
   gap:10px;
@@ -157,20 +115,245 @@ h1,h2,h3,h4 { font-weight:700; color:var(--secondary-color); }
   line-height:1.6;
   margin-bottom:10px;
 }
-.misi-list li:last-child { margin-bottom:0; }
-.misi-list li i { color:var(--primary-color); margin-top:3px; flex-shrink:0; }
+.misi-card li:last-child { margin-bottom:0; }
+.misi-card li i { color:var(--primary-color); margin-top:3px; flex-shrink:0; }
+
+/* ===== NILAI-NILAI SECTION ===== */
+.nilai-section { padding:72px 0; background:#fff; }
+
+.nilai-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));
+  gap:24px;
+}
+
+.nilai-item {
+  padding:24px;
+  border-radius:var(--border-radius-lg);
+  border:1px solid var(--border-color);
+  text-align:center;
+  transition:var(--transition);
+}
+
+.nilai-item:hover {
+  transform:translateY(-4px);
+  box-shadow:var(--box-shadow);
+  border-color:rgba(26,107,90,0.12);
+}
+
+.nilai-icon {
+  width:56px;
+  height:56px;
+  border-radius:50%;
+  background:var(--primary-light);
+  color:var(--primary-color);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:1.3rem;
+  margin:0 auto 16px;
+}
+
+.nilai-item h3 { font-size:1.05rem; margin-bottom:8px; }
+.nilai-item p { color:var(--gray-color); font-size:0.875rem; line-height:1.6; margin:0; }
+
+/* ===== STRUKTUR ORGANISASI ===== */
+.struktur-section { padding:72px 0; background:var(--light-color); }
+
+.struktur-chart {
+  display:flex;
+  flex-direction:column;
+  gap:32px;
+}
+
+.struktur-level {
+  display:flex;
+  justify-content:center;
+  gap:24px;
+  flex-wrap:wrap;
+}
+
+.struktur-card {
+  background:#fff;
+  border-radius:var(--border-radius-lg);
+  border:1px solid var(--border-color);
+  overflow:hidden;
+  width:280px;
+  text-align:center;
+  box-shadow:var(--box-shadow-sm);
+}
+
+.struktur-photo {
+  width:100%;
+  height:200px;
+  overflow:hidden;
+}
+
+.struktur-photo img {
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:top center;
+}
+
+.struktur-info { padding:20px; }
+.struktur-info h3 { font-size:1.05rem; margin-bottom:4px; }
+.struktur-info .position {
+  display:inline-block;
+  background:var(--primary-light);
+  color:var(--primary-color);
+  font-size:0.72rem;
+  font-weight:700;
+  padding:3px 10px;
+  border-radius:99px;
+  text-transform:uppercase;
+  letter-spacing:0.05em;
+  margin-bottom:10px;
+}
+.struktur-info p { color:var(--gray-color); font-size:0.84rem; line-height:1.6; margin:0; }
+
+/* ===== TIM PENGAJAR SECTION ===== */
+.pengajar-section { padding:72px 0; background:#fff; }
+
+.pengajar-filter {
+  display:flex;
+  justify-content:center;
+  gap:8px;
+  flex-wrap:wrap;
+  margin-bottom:32px;
+}
+
+.filter-btn {
+  padding:8px 16px;
+  border:1px solid var(--border-color);
+  background:#fff;
+  color:var(--gray-color);
+  border-radius:var(--border-radius-full);
+  font-size:0.85rem;
+  font-weight:500;
+  cursor:pointer;
+  transition:var(--transition);
+}
+
+.filter-btn:hover, .filter-btn.active {
+  background:var(--primary-color);
+  color:#fff;
+  border-color:var(--primary-color);
+}
+
+.pengajar-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fill, minmax(260px, 1fr));
+  gap:24px;
+}
+
+.pengajar-card {
+  background:#fff;
+  border-radius:var(--border-radius-lg);
+  border:1px solid var(--border-color);
+  overflow:hidden;
+  text-align:center;
+  transition:var(--transition);
+  box-shadow:var(--box-shadow-sm);
+}
+
+.pengajar-card:hover {
+  transform:translateY(-4px);
+  box-shadow:var(--box-shadow);
+  border-color:rgba(26,107,90,0.12);
+}
+
+.pengajar-photo {
+  width:100%;
+  height:200px;
+  object-fit:cover;
+  object-position:top center;
+}
+
+.pengajar-info { padding:20px; }
+.pengajar-info h3 { font-size:1.05rem; font-weight:700; margin-bottom:4px; }
+.pengajar-info .subject {
+  display:inline-block;
+  background:var(--primary-light);
+  color:var(--primary-color);
+  font-size:0.72rem;
+  font-weight:700;
+  padding:3px 10px;
+  border-radius:99px;
+  text-transform:uppercase;
+  letter-spacing:0.05em;
+  margin-bottom:10px;
+}
+.pengajar-info p { color:var(--gray-color); font-size:0.84rem; line-height:1.6; margin:0; }
+
+.pengajar-cta { text-align:center; margin-top:40px; }
+
+/* ===== CTA SECTION ===== */
+.cta-section {
+  padding:64px 0;
+  background:var(--primary-color);
+}
+
+.cta-content {
+  text-align:center;
+  color:#fff;
+  max-width:700px;
+  margin:0 auto;
+}
+
+.cta-content h2 { font-size:1.8rem; margin-bottom:12px; color:#fff; }
+.cta-content p { font-size:0.95rem; color:rgba(255,255,255,0.82); margin-bottom:24px; line-height:1.6; }
+
+.cta-buttons {
+  display:flex;
+  justify-content:center;
+  gap:12px;
+  flex-wrap:wrap;
+}
+
+.btn {
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:12px 24px;
+  border-radius:var(--border-radius);
+  font-weight:600;
+  font-size:0.9rem;
+  text-decoration:none;
+  transition:var(--transition);
+}
+
+.btn-primary {
+  background:#fff;
+  color:var(--primary-color);
+}
+
+.btn-primary:hover {
+  background:var(--light-color);
+}
+
+.btn-secondary {
+  background:transparent;
+  color:#fff;
+  border:1px solid rgba(255,255,255,0.4);
+}
+
+.btn-secondary:hover {
+  background:rgba(255,255,255,0.1);
+}
 
 @media (max-width:992px) {
-  .about-grid { grid-template-columns:1fr; gap:32px; }
-  .visi-misi-grid { grid-template-columns:1fr; }
+  .sejarah-wrapper { grid-template-columns:1fr; gap:32px; }
+  .visi-misi-wrapper { grid-template-columns:1fr; }
 }
 
 @media (max-width:768px) {
   .page-header h1 { font-size:1.8rem; }
-  .about-content h2 { font-size:1.55rem; }
-  .team-grid { grid-template-columns:1fr 1fr; }
+  .sejarah-content h2 { font-size:1.55rem; }
+  .pengajar-grid { grid-template-columns:1fr 1fr; }
 }
 
 @media (max-width:480px) {
-  .team-grid { grid-template-columns:1fr; }
+  .pengajar-grid { grid-template-columns:1fr; }
 }
+

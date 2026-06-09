@@ -15,7 +15,7 @@ if (!$student) {
     exit;
 }
 
-$registrations = $studentManager->getRegistrationsByEmail($student['email']);
+$registrations = $studentManager->getRegistrationsByStudentId($_SESSION['student_id']);
 
 function statusLabel($status) {
     return match($status) {

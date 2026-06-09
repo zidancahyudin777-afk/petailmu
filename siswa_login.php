@@ -11,19 +11,19 @@ $studentManager = new StudentManager();
 
 $message = '';
 $messageType = '';
-$emailValue = '';
+$usernameValue = '';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $email = trim($_POST['email'] ?? '');
+    $username = trim($_POST['username'] ?? '');
     $password = trim($_POST['password'] ?? '');
-    $emailValue = $email;
+    $usernameValue = $username;
 
-    if ($email === '' || $password === '') {
-        $message = 'Email dan password wajib diisi.';
+    if ($username === '' || $password === '') {
+        $message = 'Username dan password wajib diisi.';
         $messageType = 'error';
     } else {
         try {
-            $student = $studentManager->authenticateStudent($email, $password);
+            $student = $studentManager->authenticateStudent($username, $password);
 
             if ($student) {
                 $_SESSION['student_id'] = $student['id'];
@@ -36,7 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 exit;
             }
 
-            $message = 'Email atau password salah. Periksa kembali akun siswa Anda.';
+            $message = 'Username atau password salah. Periksa kembali akun siswa Anda.';
             $messageType = 'error';
         } catch (Exception $e) {
             $message = 'Terjadi kesalahan sistem. Silakan coba lagi.';
@@ -370,17 +370,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             <form action="siswa_login.php" method="POST">
                 <div class="form-group">
-                    <label for="email">Email Siswa</label>
+                    <label for="username">Username Siswa</label>
                     <div class="input-box">
-                        <i class="fas fa-envelope input-icon"></i>
+                        <i class="fas fa-user input-icon"></i>
                         <input
-                            type="email"
-                            id="email"
-                            name="email"
-                            placeholder="email@contoh.com"
-                            value="<?php echo htmlspecialchars($emailValue); ?>"
+                            type="text"
+                            id="username"
+                            name="username"
+                            placeholder="Masukkan username"
+                            value="<?php echo htmlspecialchars($usernameValue); ?>"
                             required
-                            autocomplete="email"
+                            autocomplete="username"
                         >
                     </div>
                 </div>
@@ -398,7 +398,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             autocomplete="current-password"
                         >
                     </div>
-                    <div class="hint">Gunakan email dan password siswa yang sudah terdaftar.</div>
+                    <div class="hint">Gunakan username dan password siswa yang sudah terdaftar.</div>
                 </div>
 
                 <button type="submit" class="btn-login">
@@ -420,8 +420,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 Akun contoh untuk uji coba
             </div>
             <div class="demo-row">
-                <span class="label">Email</span>
-                <code>siswa@example.com</code>
+                <span class="label">Username</span>
+                <code>siswa</code>
             </div>
             <div class="demo-row">
                 <span class="label">Password</span>
