@@ -415,9 +415,9 @@ CREATE TABLE `struktur_organisasi` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 INSERT INTO `struktur_organisasi` (`level`, `nama`, `posisi`, `deskripsi`, `foto`) VALUES
-(1, 'Pimpinan Peta Ilmu', 'Ketua / Pendiri',        'Bertanggung jawab atas visi, misi, dan arah pengembangan lembaga secara keseluruhan.', NULL),
-(2, 'Koordinator Akademik', 'Koordinator Akademik', 'Mengelola kurikulum, jadwal pengajaran, dan kualitas pembelajaran seluruh program.', NULL),
-(3, 'Staf Administrasi',  'Administrasi & Keuangan','Menangani administrasi, keuangan, dan hubungan dengan orang tua siswa.', NULL);
+(1, 'Pimpinan Peta Ilmu', 'Ketua / Pendiri',        'Bertanggung jawab atas visi, misi, dan arah pengembangan lembaga secara keseluruhan.', 'images/manager-sd.jpg'),
+(2, 'Koordinator Akademik', 'Koordinator Akademik', 'Mengelola kurikulum, jadwal pengajaran, dan kualitas pembelajaran seluruh program.', 'images/manager-sd.jpg'),
+(3, 'Staf Administrasi',  'Administrasi & Keuangan','Menangani administrasi, keuangan, dan hubungan dengan orang tua siswa.', 'images/manager-sd.jpg');
 
 
 -- ============================================================
@@ -466,10 +466,11 @@ CREATE TABLE `tim_pengajar` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 INSERT INTO `tim_pengajar` (`nama`, `mata_pelajaran_id`, `deskripsi`, `foto`, `status`) VALUES
-('Pengajar Matematika',      1, 'Berpengalaman mengajar matematika untuk semua jenjang SD hingga SMA.', NULL, 'aktif'),
+('Pengajar Matematika',      1, 'Berpengalaman mengajar matematika untuk semua jenjang SD hingga SMA.', 'images/guru-matematika.jpg', 'aktif'),
 ('Pengajar Bahasa Indonesia', 2, 'Ahli dalam pembelajaran bahasa Indonesia termasuk sastra dan menulis kreatif.', NULL, 'aktif'),
 ('Pengajar Bahasa Inggris',  3, 'Fasih dalam bahasa Inggris dan berpengalaman mengajarkan grammar serta percakapan.', NULL, 'aktif'),
 ('Pengajar IPA',             4, 'Berpengalaman mengajarkan IPA dari tingkat dasar hingga menengah.', NULL, 'aktif'),
+('Pengajar IPS',             5, 'Mengajarkan ilmu pengetahuan sosial dengan pendekatan kontekstual dan menarik.', 'images/guru-ips.jpg', 'aktif'),
 ('Pengajar Fisika',          6, 'Spesialis fisika untuk SMA dengan pengalaman persiapan SNBT.', NULL, 'aktif'),
 ('Pengajar Kimia',           7, 'Ahli kimia organik dan anorganik untuk jenjang SMA.', NULL, 'aktif');
 

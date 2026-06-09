@@ -117,7 +117,15 @@ try {
                     </div>
                 </div>
                 <div class="sejarah-image">
-                    <img src="images/sejarah-building.jpg" alt="Peta Ilmu" />
+                    <?php 
+                    $sejarah_img_path = 'images/sejarah-building.jpg';
+                    if (!file_exists(__DIR__ . '/' . $sejarah_img_path)) {
+                        $sejarah_img_path = '';
+                    }
+                    ?>
+                    <?php if (!empty($sejarah_img_path)): ?>
+                        <img src="<?php echo $sejarah_img_path; ?>" alt="Peta Ilmu" />
+                    <?php endif; ?>
                     <div class="image-caption">
                         <p>Peta Ilmu yang telah menjadi rumah belajar ribuan siswa</p>
                     </div>
@@ -198,10 +206,21 @@ try {
                 ?>
                     <div class="struktur-level level-<?php echo $level; ?>">
                         <?php foreach ($staff_level as $staff): ?>
+                            <?php 
+                            // Determine photo path - use actual photo if exists, otherwise use default structure image
+                            $structure_photo = 'images/default-structure.svg';
+                            if (!empty($staff['foto'])) {
+                                $check_path = __DIR__ . '/' . $staff['foto'];
+                                if (file_exists($check_path)) {
+                                    $structure_photo = htmlspecialchars($staff['foto']);
+                                }
+                            }
+                            ?>
                             <div class="struktur-card">
                                 <div class="struktur-photo">
-                                    <img src="<?php echo htmlspecialchars($staff['foto']); ?>" 
-                                         alt="<?php echo htmlspecialchars($staff['posisi']); ?>" />
+                                    <img src="<?php echo $structure_photo; ?>" 
+                                         alt="<?php echo htmlspecialchars($staff['posisi']); ?>" 
+                                         onerror="this.src='images/default-structure.svg'" />
                                 </div>
                                 <div class="struktur-info">
                                     <h3><?php echo htmlspecialchars($staff['nama']); ?></h3>
@@ -242,11 +261,29 @@ try {
 
             <div class="pengajar-grid">
                 <?php foreach ($tim_pengajar as $pengajar): ?>
+                    <?php 
+                    // Determine photo path - use actual photo if exists, otherwise use default avatar
+                    $photo_path = 'images/default-avatar.svg';
+                    if (!empty($pengajar['foto'])) {
+                        $check_path = __DIR__ . '/' . $pengajar['foto'];
+                        if (file_exists($check_path)) {
+                            $photo_path = htmlspecialchars($pengajar['foto']);
+                        }
+                    }
+                    // Map specific teachers to existing images
+                    $subject_lower = strtolower($pengajar['mata_pelajaran_kode']);
+                    if ($subject_lower === 'mtk' && file_exists(__DIR__ . '/images/guru-matematika.jpg')) {
+                        $photo_path = 'images/guru-matematika.jpg';
+                    } elseif ($subject_lower === 'ips' && file_exists(__DIR__ . '/images/guru-ips.jpg')) {
+                        $photo_path = 'images/guru-ips.jpg';
+                    }
+                    ?>
                     <div class="pengajar-card" 
                          data-subject="<?php echo htmlspecialchars($pengajar['mata_pelajaran_kode']); ?>">
                         <div class="pengajar-photo">
-                            <img src="<?php echo htmlspecialchars($pengajar['foto']); ?>" 
-                                 alt="Guru <?php echo htmlspecialchars($pengajar['mata_pelajaran']); ?>" />
+                            <img src="<?php echo $photo_path; ?>" 
+                                 alt="Guru <?php echo htmlspecialchars($pengajar['mata_pelajaran']); ?>" 
+                                 onerror="this.src='images/default-avatar.svg'" />
                         </div>
                         <div class="pengajar-info">
                             <h3><?php echo htmlspecialchars($pengajar['nama']); ?></h3>
