@@ -383,7 +383,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             autocomplete="email"
                         >
                     </div>
-                    <div class="hint">Email yang didaftarkan saat pendaftaran siswa</div>
                 </div>
 
                 <div class="form-group">
@@ -399,6 +398,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             autocomplete="current-password"
                         >
                     </div>
+                    <div class="hint">Gunakan email dan password siswa yang sudah terdaftar.</div>
                 </div>
 
                 <button type="submit" class="btn-login">

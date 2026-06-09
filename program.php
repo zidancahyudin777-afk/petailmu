@@ -47,6 +47,7 @@ try {
                         <li><a href="program.php" class="active">Program</a></li>
                         <li><a href="pendaftaran.php">Pendaftaran</a></li>
                         <li><a href="kontak.php">Kontak</a></li>
+                        <li><a href="siswa_login.php" class="btn-login-siswa"><i class="fas fa-sign-in-alt"></i> Login Siswa</a></li>
                     </ul>
                 </nav>
                 <div class="mobile-menu">

@@ -122,6 +122,7 @@ body {
   flex: 1;
   padding: 16px 12px;
   overflow-y: auto;
+  max-height: calc(100vh - 280px);
 }
 
 .nav-label {
@@ -866,6 +867,7 @@ tbody tr:last-child td { border-bottom: none; }
   .input-layout { grid-template-columns: 1fr; }
   .recommendation-grid, .note-grid, .step-grid { grid-template-columns: 1fr; }
   .learning-summary-grid { grid-template-columns: 1fr 1fr; }
+  .sidebar-nav { max-height: calc(100vh - 320px); }
 }
 
 @media (max-width: 576px) {

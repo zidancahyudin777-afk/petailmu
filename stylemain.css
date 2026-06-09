@@ -163,6 +163,10 @@ body {
   color: #fff !important;
 }
 
+.btn-login-siswa i {
+  font-size: 0.8rem;
+}
+
 /* ===== BUTTONS ===== */
 .btn {
   display: inline-flex;
