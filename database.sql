@@ -262,6 +262,7 @@ INSERT INTO `program_faqs` (`question`, `answer`) VALUES
 DROP TABLE IF EXISTS `pendaftaran`;
 CREATE TABLE `pendaftaran` (
   `id`            INT            NOT NULL AUTO_INCREMENT,
+  `student_id`    INT                     DEFAULT NULL,
   `nama_lengkap`  VARCHAR(255)   NOT NULL,
   `tanggal_lahir` DATE           NOT NULL,
   `jenis_kelamin` ENUM('L','P')  NOT NULL,
@@ -285,10 +286,14 @@ CREATE TABLE `pendaftaran` (
   `created_at`    TIMESTAMP      NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   KEY `fk_pendaftaran_package` (`package_id`),
+  KEY `fk_pendaftaran_student` (`student_id`),
   KEY `idx_status` (`status`),
   CONSTRAINT `fk_pendaftaran_package`
     FOREIGN KEY (`package_id`) REFERENCES `program_packages` (`id`)
-    ON UPDATE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `fk_pendaftaran_student`
+    FOREIGN KEY (`student_id`) REFERENCES `students` (`id`)
+    ON DELETE SET NULL ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 
@@ -494,8 +499,9 @@ INSERT INTO `kontak_info` (`jenis`, `nilai`, `status`, `urutan`) VALUES
 -- Tabel siswa untuk fitur login siswa
 CREATE TABLE IF NOT EXISTS students (
     id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(100) NOT NULL UNIQUE,
     nama VARCHAR(255) NOT NULL,
-    email VARCHAR(255) NOT NULL UNIQUE,
+    email VARCHAR(255) NOT NULL,
     password VARCHAR(255) NOT NULL,
     jenjang VARCHAR(20) NOT NULL,
     kelas VARCHAR(20) NOT NULL,
@@ -503,8 +509,9 @@ CREATE TABLE IF NOT EXISTS students (
 );
 
 -- Data akun siswa contoh
-INSERT INTO students (nama, email, password, jenjang, kelas) VALUES
-('Siswa Contoh', 'siswa@example.com', '$2y$12$HzlWuZeNo.dE7Uaed7PG4u5xjjJSfdPZZSuEMzVbvVjuaCamz9CPa', 'sma', '12');
+-- username: siswa | password: siswa123 (bcrypt hash)
+INSERT INTO students (username, nama, email, password, jenjang, kelas) VALUES
+('siswa', 'Siswa Contoh', 'siswa@example.com', '$2y$12$HzlWuZeNo.dE7Uaed7PG4u5xjjJSfdPZZSuEMzVbvVjuaCamz9CPa', 'sma', '12');
 
 -- ============================================================
 -- 19. TABEL: learning_data

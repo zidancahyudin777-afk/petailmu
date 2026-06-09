@@ -162,16 +162,17 @@ class RegistrationManager {
 
             // Insert registration
             $query = "INSERT INTO pendaftaran (
-                nama_lengkap, tanggal_lahir, jenis_kelamin, alamat, telepon, email, 
+                student_id, nama_lengkap, tanggal_lahir, jenis_kelamin, alamat, telepon, email, 
                 jenjang, kelas, sekolah, package_id, package_type, durasi, jumlah_hari, 
                 nama_ortu, pekerjaan_ortu, telepon_ortu, motivasi, referensi, total_price, status, created_at
             ) VALUES (
-                :nama_lengkap, :tanggal_lahir, :jenis_kelamin, :alamat, :telepon, :email, 
+                :student_id, :nama_lengkap, :tanggal_lahir, :jenis_kelamin, :alamat, :telepon, :email, 
                 :jenjang, :kelas, :sekolah, :package_id, :package_type, :durasi, :jumlah_hari, 
                 :nama_ortu, :pekerjaan_ortu, :telepon_ortu, :motivasi, :referensi, :total_price, 'pending', NOW()
             )";
             $stmt = $this->pdo->prepare($query);
             $stmt->execute([
+                ':student_id' => $_SESSION['student_id'] ?? null,
                 ':nama_lengkap' => $formData['nama_lengkap'],
                 ':tanggal_lahir' => $formData['tanggal_lahir'],
                 ':jenis_kelamin' => $formData['jenis_kelamin'],

@@ -10,14 +10,14 @@ class StudentManager {
     }
 
     /**
-     * Autentikasi siswa berdasarkan email dan password.
+     * Autentikasi siswa berdasarkan username dan password.
      * @return array|false Data siswa jika berhasil, false jika gagal.
      */
-    public function authenticateStudent($email, $password) {
+    public function authenticateStudent($username, $password) {
         try {
-            $query = "SELECT id, nama, email, password, jenjang, kelas FROM students WHERE email = :email";
+            $query = "SELECT id, nama, email, password, jenjang, kelas FROM students WHERE username = :username";
             $stmt  = $this->pdo->prepare($query);
-            $stmt->bindParam(':email', $email);
+            $stmt->bindParam(':username', $username);
             $stmt->execute();
             $student = $stmt->fetch(PDO::FETCH_ASSOC);
 
@@ -47,17 +47,17 @@ class StudentManager {
     }
 
     /**
-     * Ambil data pendaftaran milik siswa berdasarkan email.
+     * Ambil data pendaftaran milik siswa berdasarkan student_id.
      */
-    public function getRegistrationsByEmail($email) {
+    public function getRegistrationsByStudentId($studentId) {
         try {
             $query = "SELECT p.id, p.jenjang, p.kelas, p.package_type, p.durasi,
                              p.total_price, p.status, p.created_at
                       FROM pendaftaran p
-                      WHERE p.email = :email
+                      WHERE p.student_id = :student_id
                       ORDER BY p.created_at DESC";
             $stmt  = $this->pdo->prepare($query);
-            $stmt->execute([':email' => $email]);
+            $stmt->execute([':student_id' => $studentId]);
             return $stmt->fetchAll(PDO::FETCH_ASSOC);
         } catch (PDOException $e) {
             error_log('Get Registrations Error: ' . $e->getMessage());
