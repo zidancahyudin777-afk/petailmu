@@ -101,22 +101,23 @@ h1,h2,h3,h4 { font-weight:700; color:var(--secondary-color); }
 }
 
 .program-card-header {
-  background: linear-gradient(135deg, var(--primary-color), var(--primary-hover));
+  background: #fff;
   padding: 24px;
   text-align: center;
+  border-bottom: 1px solid var(--border-color);
 }
 
 .program-card-header .icon {
-  width: 64px;
-  height: 64px;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.2);
+  width: 80px;
+  height: 80px;
+  border-radius: 12px;
+  background: var(--primary-light);
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 0 auto;
-  font-size: 1.8rem;
-  color: #fff;
+  font-size: 2.2rem;
+  color: var(--primary-color);
 }
 
 .program-card-content {

@@ -70,9 +70,29 @@ h1,h2,h3,h4 { font-weight:700; color:var(--secondary-color); }
   border-radius: var(--border-radius-lg);
   overflow: hidden;
   box-shadow: var(--box-shadow-md);
+  background: linear-gradient(135deg, #e2e8f0 0%, #cbd5e1 100%);
+  min-height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.sejarah-image img { width:100%; height:auto; display:block; }
+.sejarah-image img { 
+  width: 100%; 
+  height: auto; 
+  display: block;
+}
+
+.sejarah-image img[src=""], .sejarah-image img:not([src]) {
+  display: none;
+}
+
+.sejarah-image::before {
+  content: "🏫";
+  font-size: 4rem;
+  opacity: 0.5;
+}
+
 .image-caption {
   padding: 12px 0 0;
   text-align: center;
